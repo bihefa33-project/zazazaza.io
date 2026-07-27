@@ -1,215 +1,206 @@
-:root {
-  --bg-color: #f8f9fa;
-  --card-bg: #f0eef2;
-  --text-main: #1f1f1f;
-  --primary-color: #0b57d0;
-  --border-radius: 18px;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  padding: 12px;
 }
 
-/* Navbar */
-.topbar {
-  display: flex;
-  align-items: center;
-  padding: 12px 20px;
-  gap: 20px;
-  background: white;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.search-bar {
-  flex: 1;
-  max-width: 600px;
-  display: flex;
-  align-items: center;
-  background-color: #e9eef6;
-  padding: 8px 16px;
-  border-radius: 30px;
-  gap: 10px;
-}
-
-.search-bar input {
-  border: none;
-  background: transparent;
-  outline: none;
-  width: 100%;
-  font-size: 15px;
-}
-
-/* Main Layout */
-.main-container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.nav-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+header {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-.back-btn {
+header h1 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* --- NAVIGASI ATAS --- */
+.nav-bar {
   display: flex;
-  align-items: center;
-  gap: 5px;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+  align-items: flex-start;
+}
+
+.back-btn {
+  background-color: #00adb5;
+  color: white;
   border: none;
-  background: #e3e3e3;
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 8px 14px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85rem;
 }
 
-.hidden {
-  display: none !important;
-}
-
-/* Grid Layout */
-.grid-container {
+/* --- GRID FOLDER (DAFTAR UTAMA) --- */
+.folders-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-/* Card Folder & File */
-.card {
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  padding: 16px;
+.folder-card {
+  background-color: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s;
-  text-align: center;
-  position: relative;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
 }
 
-.card:hover {
-  background: #e2e0e6;
+.folder-card:hover {
+  background-color: #252525;
+  border-color: #00adb5;
 }
 
-.card .icon {
-  font-size: 48px;
-  color: #444746;
-  margin-bottom: 8px;
+.folder-icon {
+  font-size: 1.8rem;
 }
 
-.card-title {
-  font-size: 14px;
+.folder-name {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #eeeeee;
   word-break: break-word;
-  color: #1f1f1f;
-  font-weight: 500;
 }
 
-.card-preview {
+/* --- GRID MEDIA (3 KOLOM PRESISI) --- */
+.media-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.media-card {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
   width: 100%;
-  height: 140px;
+  box-sizing: border-box;
+}
+
+.media-card img, 
+.media-card video {
+  width: 100%;
+  height: 130px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
 }
 
 .card-actions {
-  margin-top: 8px;
+  margin-top: 5px;
+  width: 100%;
 }
 
-.download-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+.card-actions .btn {
+  background-color: #00adb5;
+  color: white;
+  border: none;
+  padding: 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
   text-decoration: none;
-  color: var(--primary-color);
-  font-size: 13px;
+  font-size: 0.7rem;
   font-weight: bold;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
-/* Lightbox Modal */
-.modal {
+/* Penyesuaian HP Layar Kecil */
+@media (max-width: 480px) {
+  .media-grid {
+    gap: 6px !important;
+  }
+  
+  .media-card img, 
+  .media-card video {
+    height: 110px;
+  }
+}
+
+/* --- LIGHTBOX MODAL --- */
+.lightbox {
+  display: none;
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.92);
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#lightbox-media-wrapper img,
+#lightbox-media-wrapper video {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
 }
 
 .close-btn {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.modal-controls {
-  position: absolute;
-  top: 25px;
-  right: 90px;
-  z-index: 1001;
-}
-
-.btn-download {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: white;
-  color: black;
-  padding: 8px 16px;
-  border-radius: 20px;
-  text-decoration: none;
+  top: 15px;
+  right: 25px;
+  color: #fff;
+  font-size: 35px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.modal-content-wrapper {
-  max-width: 90vw;
-  max-height: 85vh;
-  overflow: auto; /* Memungkinkan scroll/zoom pada gambar/video */
+.lightbox-controls {
+  margin-top: 10px;
   display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
-/* Memastikan dimensi gambar/video mempertahankan ukuran aslinya saat di-zoom */
-.modal-content-wrapper img,
-.modal-content-wrapper video {
-  max-width: 100%;
-  height: auto;
-  transition: transform 0.25s ease;
-  cursor: zoom-in;
-}
-
-.modal-content-wrapper img.zoomed,
-.modal-content-wrapper video.zoomed {
-  max-width: none;
-  cursor: zoom-out;
-  transform: scale(1.8); /* Zoom effect */
-    }
-
+.lightbox-controls button,
+.lightbox-controls a {
+  background: #252525;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.8rem;
+  }
+  
